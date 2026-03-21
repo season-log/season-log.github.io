@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>season log | しーずんの道具箱</title>
+    <style>
+        :root {
+            --bg-color: #fbfbfb;
+            --text-color: #444444;
+            --text-light: #666666;
+            --accent-color: #6a8c96; /* 知的で落ち着いたブルーグレー */
+            --card-bg: #ffffff;
+            --border-color: #e5e5e5;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1, h2, h3 {
+            color: var(--accent-color);
+            font-weight: normal;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-top: 60px;
+            margin-bottom: 24px;
+        }
+
+        p {
+            margin-bottom: 16px;
+        }
+
+        /* Top Area */
+        .top-area {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .top-area h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            letter-spacing: 0.05em;
+        }
+
+        .top-area p {
+            color: var(--text-light);
+        }
+
+        /* Card Layout */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: opacity 0.2s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
+
+        /* News / Log */
+        .news-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .news-list li {
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        /* Terms */
+        .terms-box {
+            background-color: #f4f6f7;
+            border-radius: 8px;
+            padding: 16px 20px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .terms-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        /* Contact Form */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (min-width: 600px) {
+            .news-list li {
+                flex-direction: row;
+                align-items: baseline;
+                gap: 16px;
+            }
+            .news-date {
+                margin-bottom: 0;
+                min-width: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header class="top-area">
+        <h1>season log</h1>
+        <p>しーずんが作った実用品ツールや活動記録をまとめたページです。</p>
+    </header>
+
+    <section id="about">
+        <h2>活動について</h2>
+        <p>AIを活用しながら、実際に使える小さな道具や発信を作っています。<br>
+        使いやすさ重視の実用品ツールを少しずつ公開しています。</p>
+    </section>
+
+    <section id="tools">
+        <h2>公開中のツール</h2>
+        
+        <div class="card">
+            <h3>サムネ文字配置ツール</h3>
+            <p>背景画像に文字を置いて、位置調整してPNG保存できるツールです。ブラウザ上で動作し、インストール不要ですぐに使えます。</p>
+            <div class="btn-group">
+                <a href="#" class="btn">noteで見る</a>
+                <a href="#" class="btn btn-outline">ココナラで見る</a>
+            </div>
+        </div>
+        
+        </section>
+
+    <section id="links">
+        <h2>販売・案内先</h2>
+        <div class="card">
+            <p>各ツールやコンテンツは以下のプラットフォームで公開・販売しています。</p>
+            <div class="btn-group">
+                <a href="#" class="btn">note</a>
+                <a href="#" class="btn">ココナラ</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="news">
+        <h2>お知らせ・活動記録</h2>
+        <ul class="news-list">
+            <li>
+                <span class="news-date">2026.03.21</span>
+                <span class="news-text">活動拠点となるWebページ「season log」を公開しました。</span>
+            </li>
+            <li>
+                <span class="news-date">2026.03.20</span>
+                <span class="news-text">サムネ文字配置ツールを公開しました。</span>
+            </li>
+        </ul>
+    </section>
+
+    <section id="terms">
+        <h2>ご利用にあたって</h2>
+        <div class="terms-box">
+            <ul>
+                <li>掲載内容の無断転載・無断配布はご遠慮ください。</li>
+                <li>各ツールの案内内容や仕様は、予告なく変更される場合があります。</li>
+                <li>ツールの詳細な利用規約については、各販売・公開ページをご確認ください。</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>お問い合わせ</h2>
+        <p>ツールに関するご質問やご連絡は、以下のフォームよりお願いいたします。</p>
+        <div class="card">
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="name">お名前</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="例：山田 太郎">
+                </div>
+                <div class="form-group">
+                    <label for="email">メールアドレス</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="例：mail@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">お問い合わせ内容</label>
+                    <textarea id="message" name="message" class="form-control" placeholder="ご質問やメッセージをご記入ください"></textarea>
+                </div>
+                <div class="form-group" style="margin-top: 24px; text-align: center;">
+                    <button type="submit" class="btn" style="width: 100%; max-width: 300px; padding: 14px;">送信する</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; しーずん / season log</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
