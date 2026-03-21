@@ -6,284 +6,282 @@
     <title>season log | しーずんの道具箱</title>
     <style>
         :root {
-            --bg-color: #fbfbfb;
-            --text-color: #444444;
-            --text-light: #666666;
-            --accent-color: #6a8c96; /* 知的で落ち着いたブルーグレー */
+            /* 配色：知的でやさしいパレット */
+            --bg-body: #f9fbfc;
+            --bg-hero: #eff4f6;
+            --text-main: #333c44;
+            --text-sub: #5a6b77;
+            --accent-primary: #607d8b; /* ブルーグレー：知的・落ち着き */
+            --accent-button: #d4a373;  /* 柔らかいゴールド系：ボタンの目立ち */
             --card-bg: #ffffff;
-            --border-color: #e5e5e5;
+            --border-color: #e2e8f0;
         }
 
         body {
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.8;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
             margin: 0;
             padding: 0;
         }
 
         .container {
-            max-width: 760px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 24px;
         }
 
-        h1, h2, h3 {
-            color: var(--accent-color);
-            font-weight: normal;
-        }
-
-        h2 {
-            font-size: 1.4rem;
+        /* 1. ファーストビュー (Hero) */
+        .hero {
+            background-color: var(--bg-hero);
+            padding: 80px 24px;
+            text-align: center;
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin: 0 0 16px 0;
+            letter-spacing: 0.08em;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* 見出し */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--accent-primary);
             margin-top: 60px;
             margin-bottom: 24px;
+            display: flex;
+            align-items: center;
         }
 
-        p {
-            margin-bottom: 16px;
+        h2::before {
+            content: "";
+            width: 4px;
+            height: 1.2em;
+            background-color: var(--accent-primary);
+            margin-right: 12px;
+            border-radius: 2px;
         }
 
-        /* Top Area */
-        .top-area {
-            text-align: center;
-            margin-bottom: 60px;
+        /* 2. カードレイアウト (Tools) */
+        .tool-grid {
+            display: grid;
+            gap: 24px;
         }
 
-        .top-area h1 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            letter-spacing: 0.05em;
-        }
-
-        .top-area p {
-            color: var(--text-light);
-        }
-
-        /* Card Layout */
         .card {
             background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
             border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
         }
 
         .card h3 {
             margin-top: 0;
-            margin-bottom: 12px;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            color: var(--accent-primary);
         }
 
-        /* Buttons */
+        .card p {
+            color: var(--text-sub);
+            margin-bottom: 24px;
+        }
+
+        /* ボタン */
         .btn-group {
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
-            margin-top: 16px;
         }
 
         .btn {
             display: inline-block;
-            background-color: var(--accent-color);
-            color: #ffffff;
+            background-color: var(--accent-button);
+            color: #fff;
             text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            transition: opacity 0.2s ease;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: opacity 0.2s, filter 0.2s;
         }
 
         .btn:hover {
-            opacity: 0.8;
+            filter: brightness(1.05);
+            opacity: 0.9;
         }
 
-        .btn-outline {
+        .btn-sub {
             background-color: transparent;
-            color: var(--accent-color);
-            border: 1px solid var(--accent-color);
+            color: var(--accent-primary);
+            border: 2px solid var(--accent-primary);
         }
 
-        /* News / Log */
-        .news-list {
+        /* お知らせ・案内 */
+        .log-box, .terms-box {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .log-list {
             list-style: none;
             padding: 0;
-        }
-
-        .news-list li {
-            padding: 12px 0;
-            border-bottom: 1px dashed var(--border-color);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .news-date {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin-bottom: 4px;
-        }
-
-        /* Terms */
-        .terms-box {
-            background-color: #f4f6f7;
-            border-radius: 8px;
-            padding: 16px 20px;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .terms-box ul {
             margin: 0;
-            padding-left: 20px;
         }
 
-        /* Contact Form */
-        .form-group {
-            margin-bottom: 20px;
+        .log-item {
+            display: flex;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f4f8;
         }
 
+        .log-item:last-child { border-bottom: none; }
+
+        .log-date {
+            min-width: 110px;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        /* 問い合わせフォーム */
+        .contact-form {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px;
+        }
+
+        .form-group { margin-bottom: 20px; }
         .form-group label {
             display: block;
             margin-bottom: 8px;
+            font-weight: 600;
             font-size: 0.9rem;
         }
 
         .form-control {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             border: 1px solid var(--border-color);
             border-radius: 8px;
             box-sizing: border-box;
-            font-family: inherit;
-            font-size: 1rem;
+            background-color: #fcfdfe;
         }
 
-        textarea.form-control {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        /* Footer */
+        /* フッター */
         footer {
+            margin-top: 100px;
+            padding: 40px 0;
             text-align: center;
-            margin-top: 80px;
-            padding-top: 20px;
             border-top: 1px solid var(--border-color);
-            color: var(--text-light);
-            font-size: 0.85rem;
+            color: var(--text-sub);
+            font-size: 0.9rem;
         }
 
-        /* Responsive */
-        @media (min-width: 600px) {
-            .news-list li {
-                flex-direction: row;
-                align-items: baseline;
-                gap: 16px;
-            }
-            .news-date {
-                margin-bottom: 0;
-                min-width: 100px;
-            }
+        /* モバイル対応 */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .log-item { flex-direction: column; }
+            .log-date { margin-bottom: 4px; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-
-    <header class="top-area">
+<header class="hero">
+    <div class="container">
         <h1>season log</h1>
-        <p>しーずんが作った実用品ツールや活動記録をまとめたページです。</p>
-    </header>
+        <p>AIと共に歩む。日々の活動記録と、<br>暮らしを少し便利にする実用品ツールをまとめています。</p>
+    </div>
+</header>
+
+<main class="container">
 
     <section id="about">
         <h2>活動について</h2>
-        <p>AIを活用しながら、実際に使える小さな道具や発信を作っています。<br>
-        使いやすさ重視の実用品ツールを少しずつ公開しています。</p>
+        <p>「しーずん」が制作しているツールや、note・ココナラでの活動拠点です。派手さはありませんが、実用的で手触りの良い道具を少しずつ増やしています。</p>
     </section>
 
     <section id="tools">
         <h2>公開中のツール</h2>
-        
-        <div class="card">
-            <h3>サムネ文字配置ツール</h3>
-            <p>背景画像に文字を置いて、位置調整してPNG保存できるツールです。ブラウザ上で動作し、インストール不要ですぐに使えます。</p>
-            <div class="btn-group">
-                <a href="#" class="btn">noteで見る</a>
-                <a href="#" class="btn btn-outline">ココナラで見る</a>
+        <div class="tool-grid">
+            <div class="card">
+                <h3>サムネ文字配置ツール</h3>
+                <p>背景画像に文字を置いて、最適な位置を直感的に調整。そのままPNG保存できる軽量ブラウザツールです。</p>
+                <div class="btn-group">
+                    <a href="#" class="btn">noteで見る</a>
+                    <a href="#" class="btn btn-sub">ココナラで見る</a>
+                </div>
             </div>
-        </div>
-        
-        </section>
-
-    <section id="links">
-        <h2>販売・案内先</h2>
-        <div class="card">
-            <p>各ツールやコンテンツは以下のプラットフォームで公開・販売しています。</p>
-            <div class="btn-group">
-                <a href="#" class="btn">note</a>
-                <a href="#" class="btn">ココナラ</a>
             </div>
-        </div>
     </section>
 
     <section id="news">
-        <h2>お知らせ・活動記録</h2>
-        <ul class="news-list">
-            <li>
-                <span class="news-date">2026.03.21</span>
-                <span class="news-text">活動拠点となるWebページ「season log」を公開しました。</span>
-            </li>
-            <li>
-                <span class="news-date">2026.03.20</span>
-                <span class="news-text">サムネ文字配置ツールを公開しました。</span>
-            </li>
-        </ul>
-    </section>
-
-    <section id="terms">
-        <h2>ご利用にあたって</h2>
-        <div class="terms-box">
-            <ul>
-                <li>掲載内容の無断転載・無断配布はご遠慮ください。</li>
-                <li>各ツールの案内内容や仕様は、予告なく変更される場合があります。</li>
-                <li>ツールの詳細な利用規約については、各販売・公開ページをご確認ください。</li>
+        <h2>活動記録</h2>
+        <div class="log-box">
+            <ul class="log-list">
+                <li class="log-item">
+                    <span class="log-date">2026.03.21</span>
+                    <span class="log-text">活動拠点「season log」を公開しました。</span>
+                </li>
+                <li class="log-item">
+                    <span class="log-date">2026.03.20</span>
+                    <span class="log-text">サムネ文字配置ツールの提供を開始しました。</span>
+                </li>
             </ul>
         </div>
     </section>
 
     <section id="contact">
         <h2>お問い合わせ</h2>
-        <p>ツールに関するご質問やご連絡は、以下のフォームよりお願いいたします。</p>
-        <div class="card">
+        <div class="contact-form">
             <form action="#" method="post">
                 <div class="form-group">
-                    <label for="name">お名前</label>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="例：山田 太郎">
+                    <label>お名前</label>
+                    <input type="text" class="form-control" placeholder="お名前をご記入ください">
                 </div>
                 <div class="form-group">
-                    <label for="email">メールアドレス</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="例：mail@example.com">
+                    <label>メールアドレス</label>
+                    <input type="email" class="form-control" placeholder="mail@example.com">
                 </div>
                 <div class="form-group">
-                    <label for="message">お問い合わせ内容</label>
-                    <textarea id="message" name="message" class="form-control" placeholder="ご質問やメッセージをご記入ください"></textarea>
+                    <label>内容</label>
+                    <textarea class="form-control" style="min-height: 120px;" placeholder="お問い合わせ内容をご記入ください"></textarea>
                 </div>
-                <div class="form-group" style="margin-top: 24px; text-align: center;">
-                    <button type="submit" class="btn" style="width: 100%; max-width: 300px; padding: 14px;">送信する</button>
+                <div style="text-align: center;">
+                    <button type="submit" class="btn" style="width: 100%; max-width: 300px; cursor: pointer; border: none;">メッセージを送信する</button>
                 </div>
             </form>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; しーずん / season log</p>
-    </footer>
+</main>
 
-</div>
+<footer>
+    <p>&copy; しーずん / season log</p>
+</footer>
 
 </body>
 </html>
