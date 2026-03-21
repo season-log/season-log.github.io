@@ -33,7 +33,7 @@
 
         /* ファーストビュー (Hero Area) */
         .hero-area {
-            background-color: var(--card-bg);
+            background-color: var(--card-bg); /* 白ベース */
             border-bottom: 1px solid var(--border-color);
             padding: 60px 0;
             margin-bottom: 40px;
@@ -42,16 +42,16 @@
         .hero-flex {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-start; /* 左揃え */
             gap: 40px;
         }
 
         .hero-text {
-            flex: 1;
+            flex: 1; /* 残りのスペースを埋める */
         }
 
         .hero-text h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem; /* PCでは大きく印象的に */
             margin: 0 0 10px 0;
             color: var(--accent-main);
             letter-spacing: 0.05em;
@@ -61,10 +61,12 @@
             font-size: 1.1rem;
             color: var(--secondary-text);
             margin: 0;
+            line-height: 1.7; /* やわらかく */
         }
 
         .hero-image {
-            width: 300px;
+            width: 35%; /* PCでの占有率 */
+            max-width: 300px; /* 圧迫感を防ぐ */
             flex-shrink: 0;
         }
 
@@ -228,21 +230,33 @@
         /* レスポンシブ (スマホ対応) */
         @media (max-width: 768px) {
             .hero-flex {
-                flex-direction: column-reverse;
-                text-align: center;
-                gap: 20px;
-                padding-top: 40px;
+                flex-direction: row; /* スマホでも2列並列を維持 */
+                text-align: left; /* テキスト左揃え */
+                justify-content: space-between; /* 画像とテキストを端に寄せる */
+                gap: 24px; /* 余白を調整 */
+                padding: 40px 20px; /* パディングを調整 */
             }
 
             .hero-text h1 {
-                font-size: 2rem;
+                font-size: 2rem; /* スマホでは少し小さく */
+            }
+
+            .hero-text p {
+                font-size: 1rem;
             }
 
             .hero-image {
-                width: 200px;
-                margin-bottom: 20px;
-                margin-left: auto;
-                margin-right: auto;
+                width: 40%; /* スマホでの占有率を上げる */
+                max-width: 240px; /* スマホでの最大幅 */
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-image {
+                max-width: 180px; /* スマホではさらに少し小さく */
+                width: 45%;
             }
         }
     </style>
