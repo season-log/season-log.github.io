@@ -35,7 +35,7 @@
             padding: 0 24px;
         }
 
-        /* --- Hero Area (PC) --- */
+        /* --- Hero Area --- */
         .hero-area {
             background: var(--bg-hero);
             border-bottom: 1px solid var(--border-color);
@@ -139,7 +139,7 @@
         .btn {
             display: inline-block;
             background-color: var(--accent-button);
-            color: white;
+            color: white !important;
             text-decoration: none;
             padding: 14px 28px;
             border-radius: 12px;
@@ -158,10 +158,14 @@
 
         .btn-outline {
             background-color: transparent;
-            color: var(--accent-main);
+            color: var(--accent-main) !important;
             border: 2px solid var(--accent-main);
             box-shadow: none;
             padding: 12px 26px;
+        }
+
+        .btn-outline:hover {
+            background-color: #f2f7f9;
         }
 
         /* --- Logs & Others --- */
@@ -184,13 +188,25 @@
             color: var(--secondary-text);
         }
 
-        .form-control {
-            width: 100%;
-            padding: 16px;
-            border: 1px solid #ccc;
-            border-radius: 12px;
-            margin-bottom: 16px;
-            box-sizing: border-box;
+        /* Contact Section */
+        .contact-box {
+            background-color: var(--card-bg);
+            padding: 32px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+            text-align: center;
+        }
+
+        .contact-box a {
+            color: var(--accent-main);
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
         }
 
         footer {
@@ -200,22 +216,20 @@
             color: var(--secondary-text);
         }
 
-        /* -----------------------------------------
-           Mobile Optimization (スマホ対応)
-        ----------------------------------------- */
+        /* --- Mobile Optimization --- */
         @media (max-width: 768px) {
             .hero-area {
                 padding: 40px 0;
             }
 
             .hero-flex {
-                flex-direction: column; /* 縦並び */
+                flex-direction: column;
                 text-align: center;
                 gap: 32px;
             }
 
             .hero-text h1 {
-                font-size: 2.2rem; /* サイズを下げて改行を防止 */
+                font-size: 2.2rem;
                 margin-bottom: 12px;
             }
 
@@ -230,7 +244,7 @@
             }
 
             .hero-image {
-                width: 70%; /* スマホでイラストをしっかり見せる */
+                width: 70%;
                 max-width: 280px;
                 margin: 0 auto;
             }
@@ -240,7 +254,7 @@
             }
 
             h2 {
-                font-size: 1.5rem; /* 見出しも少し小さく */
+                font-size: 1.5rem;
                 margin-bottom: 30px;
             }
 
@@ -286,8 +300,8 @@
                 <h3>サムネ文字配置ツール</h3>
                 <p>背景画像に文字を置いて、最適な位置を直感的に調整。そのままPNG保存できる軽量ブラウザツールです。</p>
                 <div class="link-group">
-                    <a href="#" class="btn btn-outline" style="margin-right:8px; margin-bottom:8px;">noteで見る</a>
-                    <a href="#" class="btn">ココナラで見る</a>
+                    <a href="https://note.com/season_log" target="_blank" rel="noopener" class="btn btn-outline" style="margin-right:8px; margin-bottom:8px;">noteで見る</a>
+                    <a href="https://coconala.com/contents_market/search?user_id=5894067" target="_blank" rel="noopener" class="btn">ココナラで見る</a>
                 </div>
             </div>
         </div>
@@ -295,6 +309,19 @@
 </section>
 
 <div class="container">
+    <section id="links">
+        <h2>販売・案内先</h2>
+        <div class="card-grid">
+            <div class="card" style="text-align: center; padding: 40px;">
+                <p>最新のツールや活動報告は、各プラットフォームをご確認ください。</p>
+                <div class="hero-btn-group" style="justify-content: center;">
+                    <a href="https://note.com/season_log" target="_blank" rel="noopener" class="btn btn-outline">note</a>
+                    <a href="https://coconala.com/contents_market/search?user_id=5894067" target="_blank" rel="noopener" class="btn btn-outline">ココナラ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="news">
         <h2>活動記録</h2>
         <ul class="news-list">
@@ -322,12 +349,10 @@
 
     <section id="contact">
         <h2>お問い合わせ</h2>
-        <form action="#" method="post">
-            <input type="text" name="name" class="form-control" placeholder="お名前" required>
-            <input type="email" name="email" class="form-control" placeholder="メールアドレス" required>
-            <textarea name="message" class="form-control" style="min-height: 150px;" placeholder="お問い合わせ内容" required></textarea>
-            <button type="submit" class="btn" style="width: 100%;">送信する</button>
-        </form>
+        <div class="contact-box">
+            <p>お問い合わせは以下のメールアドレスまでお願いいたします。</p>
+            <a href="mailto:seasonlog.info@gmail.com">seasonlog.info@gmail.com</a>
+        </div>
     </section>
 </div>
 
