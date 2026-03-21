@@ -7,16 +7,16 @@
     <style>
         :root {
             /* 配色：知的でやわらかいブルーグレーを基調に、ボタンを少し目立たせる */
-            --bg-color: #fdfdfd; /* 以前より白く、清潔感のある白 */
+            --bg-color: #fdfdfd; /* 洗潔感のある白 */
             --bg-hero: linear-gradient(180deg, #eff4f6 0%, #ffffff 100%); /* 上品なグラデーション */
-            --bg-section-alt: #fcfcfc; /* 以前より薄く、カードを引き立てるグレー */
+            --bg-section-alt: #fcfcfc; /* カードを引き立てる薄いグレー */
             --primary-text: #2c3e50;
             --secondary-text: #606f7b;
             --accent-main: #6a8c96; /* 知的で落ち着いたブルーグレー */
             --accent-button: #e68d3a; /* オレンジを少し深く、上品に */
             --card-bg: #ffffff;
-            --border-color: #f1f1f1; /* 以前より薄く、自然に */
-            --shadow-card: 0 8px 32px rgba(0,0,0,0.06); /* 以前より強く、立体感を出す影 */
+            --border-color: #f1f1f1; /* 自然な薄いグレー */
+            --shadow-card: 0 8px 32px rgba(0,0,0,0.06); /* 立体感を出す影 */
             --shadow-button: 0 4px 8px rgba(0,0,0,0.1); /* ボタンの立体感 */
         }
 
@@ -54,7 +54,7 @@
         }
 
         .hero-text h1 {
-            font-size: 4rem; /* さらに大きく印象的に */
+            font-size: 4rem; /* 大きく印象的に */
             margin: 0 0 16px 0;
             color: var(--accent-main);
             letter-spacing: 0.05em;
@@ -75,7 +75,7 @@
 
         .hero-image {
             width: 45%; /* PCでの占有率を上げる */
-            max-width: 400px; /* サイトの顔として見えるように大きく */
+            max-width: 420px; /* サイトの顔として見えるように、余白なし画像を最大限活かして大きく */
             flex-shrink: 0;
         }
 
@@ -119,12 +119,12 @@
         }
 
         .card:hover {
-            transform: translateY(-10px); /* ホバー時の動きをさらに強調 */
-            box-shadow: 0 16px 48px rgba(0,0,0,0.08); /* 影をさらに強調 */
+            transform: translateY(-10px); /* ホバー時の動きを強調 */
+            box-shadow: 0 16px 48px rgba(0,0,0,0.08); /* 影を強調 */
         }
 
         .card h3 {
-            font-size: 1.5rem; /* ツール名をもっと目立たせる */
+            font-size: 1.5rem; /* ツール名を目立たせる */
             margin-top: 0;
             margin-bottom: 12px;
             color: #1a2530; /* 少し濃く */
@@ -149,11 +149,11 @@
             background-color: var(--accent-button);
             color: white;
             text-decoration: none;
-            padding: 14px 28px; /* 以前より大きく、押したくなるサイズ */
+            padding: 14px 28px; /* 押したくなるサイズ */
             border-radius: 12px; /* 角丸を少し大きく */
             font-size: 1.05rem;
             font-weight: bold;
-            transition: background-color 0.2s, box-shadow 0.2s, transform 0.1s; /* transformを追加 */
+            transition: background-color 0.2s, box-shadow 0.2s, transform 0.1s;
             box-shadow: var(--shadow-button); /* 立体感 */
             border: none;
             cursor: pointer;
@@ -188,7 +188,7 @@
             padding: 60px 0; /* PCでは広めに */
         }
 
-        /* お知らせ・案内欄 */
+        /* お知らせ・活動記録 */
         .news-list {
             list-style: none;
             padding: 0;
@@ -234,7 +234,7 @@
 
         .form-control {
             width: 100%;
-            padding: 16px; /* 以前より大きく */
+            padding: 16px; /* 大きく */
             border: 1px solid #ccc;
             border-radius: 12px;
             box-sizing: border-box;
@@ -293,7 +293,7 @@
 
             .hero-image {
                 width: 50%; /* スマホでの占有率を上げる */
-                max-width: 320px; /* スマホでの最大幅 */
+                max-width: 340px; /* スマホでの最大幅（余白なし画像を最大限活かして大きく） */
                 margin: 0;
             }
         }
@@ -314,7 +314,7 @@
             }
 
             .hero-image {
-                max-width: 280px; /* スマホではさらに少し小さく */
+                max-width: 300px; /* スマホではさらに少し小さく */
                 width: 55%;
             }
 
@@ -339,7 +339,7 @@
             </div>
         </div>
         <div class="hero-image">
-            <img src="season001.png" alt="しーずんの案内役イラスト">
+            <img src="season002.png" alt="しーずんの案内役イラスト">
         </div>
     </div>
 </header>
