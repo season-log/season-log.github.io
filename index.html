@@ -5,182 +5,330 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>しーずんの道具箱 | Season_Log</title>
     <style>
-        /* --- 基本設定（リセット・共通） --- */
+        :root {
+            --bg-color: #fdfdfd;
+            --bg-hero: linear-gradient(180deg, #eff4f6 0%, #ffffff 100%);
+            --bg-section-alt: #fcfcfc;
+            --primary-text: #2c3e50;
+            --secondary-text: #606f7b;
+            --accent-main: #6a8c96; /* 落ち着いたブルーグレー */
+            --accent-button: #f39800; /* 目立つオレンジに変更 */
+            --card-bg: #ffffff;
+            --border-color: #f1f1f1;
+            --shadow-card: 0 8px 32px rgba(0,0,0,0.06);
+            --shadow-button: 0 4px 0 #c77c00; /* 立体感用の影 */
+        }
+
         body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-text);
+            line-height: 1.7;
             margin: 0;
             padding: 0;
-            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-            color: #333;
-            line-height: 1.6;
-            background-color: #fcfcfc;
+            word-wrap: break-word;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 960px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* --- TOP（ヒーロー）セクション --- */
-        .hero-section {
+        /* --- Hero Area (TOPセクション) --- */
+        .hero-area {
+            background: var(--bg-hero);
+            border-bottom: 1px solid var(--border-color);
             padding: 80px 0;
-            background-color: #ffffff;
-            border-bottom: 1px solid #eee;
         }
 
         .hero-flex {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 40px;
         }
 
-        .hero-content {
-            flex: 1.2;
+        .hero-text {
+            flex: 1;
         }
 
-        .hero-image {
-            flex: 0.8;
-            text-align: center;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            /* 画像が浮いているように見せたい場合は下の影を有効にしてください */
-            /* filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); */
-        }
-
-        /* --- テキスト装飾 --- */
+        /* 正式名称の補助表記 */
         .site-formal-name {
-            font-size: 0.9rem;
-            color: #888;
-            margin-bottom: 8px;
-            font-weight: bold;
             display: block;
-            letter-spacing: 0.05em;
+            font-size: 1rem;
+            color: var(--secondary-text);
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
         }
 
-        .hero-title {
-            font-size: 2.8rem;
+        .hero-text h1 {
+            font-size: 3.2rem; /* 少し調整して読みやすく */
             margin: 0 0 20px 0;
-            color: #222;
+            color: var(--accent-main);
+            letter-spacing: 0.02em;
+            font-weight: 700;
             line-height: 1.2;
         }
 
-        .hero-description {
+        .hero-text p {
             font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 40px;
-            word-break: break-all;
+            color: var(--secondary-text);
+            margin: 0 0 32px 0;
         }
 
-        /* --- オレンジのボタン --- */
-        .btn-orange {
+        .hero-image {
+            width: 40%;
+            max-width: 350px;
+            flex-shrink: 0;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            /* 必要ならここに filter: drop-shadow(...) など追加 */
+        }
+
+        /* --- Buttons --- */
+        .btn {
             display: inline-block;
-            background-color: #f39800;
-            color: #ffffff;
-            padding: 18px 40px;
+            background-color: var(--accent-button);
+            color: white !important;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
+            padding: 16px 32px;
+            border-radius: 12px;
             font-size: 1.1rem;
-            transition: background-color 0.3s, transform 0.2s;
-            box-shadow: 0 4px 0 #c77c00; /* 立体感 */
+            font-weight: bold;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-button);
+            border: none;
+            text-align: center;
         }
 
-        .btn-orange:hover {
+        .btn:hover {
             background-color: #e58700;
             transform: translateY(2px);
             box-shadow: 0 2px 0 #c77c00;
         }
 
-        /* --- ツールセクション（ここから下にコンテンツを足せます） --- */
-        .section-tools {
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-main) !important;
+            border: 2px solid var(--accent-main);
+            box-shadow: none;
+            padding: 12px 26px;
+        }
+
+        .btn-outline:hover {
+            background-color: #f2f7f9;
+        }
+
+        /* --- 各セクション共通 --- */
+        section {
             padding: 80px 0;
         }
 
-        .section-title {
-            text-align: center;
+        h2 {
             font-size: 1.8rem;
-            margin-bottom: 40px;
-            position: relative;
-            padding-bottom: 15px;
+            color: var(--accent-main);
+            margin: 0 0 40px 0;
+            border-left: 6px solid var(--accent-main);
+            padding-left: 18px;
+            font-weight: 700;
         }
 
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background-color: #f39800;
+        /* --- Cards --- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        /* --- レスポンシブ対応（スマホ表示） --- */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin: 0 0 12px 0;
+            color: #1a2530;
+        }
+
+        .card p {
+            margin-bottom: 25px;
+            flex-grow: 1;
+            font-size: 0.95rem;
+            color: var(--secondary-text);
+        }
+
+        /* --- Lists & Others --- */
+        .news-list { list-style: none; padding: 0; }
+        .news-list li {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            gap: 20px;
+        }
+        .news-date { font-weight: bold; min-width: 100px; color: var(--accent-main); }
+
+        .terms-box {
+            background-color: #eff4f6;
+            padding: 24px;
+            border-radius: 12px;
+            color: var(--secondary-text);
+        }
+
+        .contact-box {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+            text-align: center;
+        }
+
+        .contact-box a {
+            color: var(--accent-main);
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+
+        /* --- Mobile Optimization --- */
         @media (max-width: 768px) {
+            .hero-area { padding: 60px 0; }
             .hero-flex {
                 flex-direction: column;
                 text-align: center;
-                gap: 30px;
+                gap: 32px;
             }
-
             .hero-image {
-                order: 2; /* 画像を文字の下にする */
+                order: 2; /* 画像を後に */
+                width: 65%;
             }
-
-            .hero-content {
-                order: 1; /* 文字を一番上にする */
-            }
-
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .hero-description {
-                text-align: left; /* スマホでも読みやすさ優先で左寄せ */
-                font-size: 1rem;
-            }
-
-            .btn-orange {
-                width: 100%;
-                box-sizing: border-box;
-            }
+            .hero-text { order: 1; }
+            .hero-text h1 { font-size: 2.2rem; }
+            .hero-btn-group { justify-content: center; }
+            
+            section { padding: 50px 0; }
+            h2 { font-size: 1.5rem; }
+            .news-list li { flex-direction: column; gap: 8px; }
         }
     </style>
 </head>
 <body>
 
-    <section class="hero-section">
-        <div class="container hero-flex">
-            
-            <div class="hero-content">
-                <span class="site-formal-name">Season_Log</span>
-                <h1 class="hero-title">しーずんの道具箱</h1>
-                <p class="hero-description">
-                    しーずんが作った実用品ツールや活動記録をまとめた拠点です。<br>
-                    公開中のツール、販売ページ、note記事への導線をわかりやすく整理しています。
-                </p>
-                <div class="hero-cta">
-                    <a href="#tools" class="btn-orange">公開中ツールを見る</a>
+<header class="hero-area">
+    <div class="container hero-flex">
+        <div class="hero-text">
+            <span class="site-formal-name">Season_Log</span>
+            <h1>しーずんの道具箱</h1>
+            <p>しーずんが作った実用品ツールや活動記録をまとめた拠点です。<br>
+            公開中のツール、販売ページ、note記事への導線をわかりやすく整理しています。</p>
+            <div class="hero-btn-group">
+                <a href="#tools" class="btn">公開中ツールを見る</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="season002.png" alt="しーずんの案内役イラスト">
+        </div>
+    </div>
+</header>
+
+<section id="tools">
+    <div class="container">
+        <h2>公開中のツール</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>サムネ文字配置ツール</h3>
+                <p>背景画像に文字を置いて、最適な位置を直感的に調整。そのままPNG保存できる軽量ブラウザツールです。</p>
+                <div class="link-group">
+                    <a href="https://note.com/season_log" target="_blank" rel="noopener" class="btn btn-outline" style="margin-right:8px; margin-bottom:8px;">noteで見る</a>
+                    <a href="https://coconala.com/contents_market/search?user_id=5894067" target="_blank" rel="noopener" class="btn">ココナラで見る</a>
                 </div>
             </div>
-
-            <div class="hero-image">
-                <img src="season002.png" alt="しーずんのイラスト">
             </div>
+    </div>
+</section>
 
+<div class="container">
+    <section id="links">
+        <h2>販売・案内先</h2>
+        <div class="card-grid">
+            <div class="card" style="text-align: center; padding: 40px;">
+                <p>最新のツールや活動報告は、各プラットフォームをご確認ください。</p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://note.com/season_log" target="_blank" rel="noopener" class="btn btn-outline">note</a>
+                    <a href="https://coconala.com/contents_market/search?user_id=5894067" target="_blank" rel="noopener" class="btn btn-outline">ココナラ</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="tools" class="section-tools">
-        <div class="container">
-            <h2 class="section-title">公開中のツール</h2>
-            <p style="text-align: center; color: #999;">（ここにツール一覧を準備していきましょうね）</p>
+    <section id="news">
+        <h2>活動記録</h2>
+        <ul class="news-list">
+            <li>
+                <span class="news-date">2026.03.21</span>
+                <span>活動拠点「しーずんの道具箱」としてリニューアルしました。</span>
+            </li>
+            <li>
+                <span class="news-date">2026.03.20</span>
+                <span>サムネ文字配置ツールの提供を開始しました。</span>
+            </li>
+        </ul>
+    </section>
+
+    <section id="terms">
+        <h2>ご利用にあたって</h2>
+        <div class="terms-box">
+            <ul style="margin: 0; padding-left: 20px;">
+                <li>掲載内容の無断転載・無断配布はご遠慮ください。</li>
+                <li>各ツールの案内内容は、予告なく変更される場合があります。</li>
+                <li>詳細は販売ページ（note/ココナラ等）をご確認ください。</li>
+            </ul>
         </div>
     </section>
+
+    <section id="contact">
+        <h2>お問い合わせ</h2>
+        <div class="contact-box">
+            <p>お問い合わせは以下のメールアドレスまでお願いいたします。</p>
+            <a href="mailto:seasonlog.info@gmail.com">seasonlog.info@gmail.com</a>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="container">
+        <p>&copy; しーずん / Season_Log</p>
+    </div>
+</footer>
 
 </body>
 </html>
