@@ -34,7 +34,7 @@
             padding: 0 24px;
         }
 
-        /* --- TOP (Hero Area) --- */
+        /* --- 1. TOP (Hero Area) --- */
         .hero-area {
             background: var(--bg-hero);
             padding: 80px 0;
@@ -134,7 +134,7 @@
 
         h3 { font-size: 1.3rem; margin-top: 0; color: #1a2530; }
 
-        /* --- はじめての方へ（案内・販売） --- */
+        /* --- 案内セクション共通デザイン --- */
         .guide-box {
             background-color: #fff;
             border: 1px solid var(--border-color);
@@ -145,36 +145,20 @@
 
         .guide-intro { margin-bottom: 32px; color: var(--secondary-text); }
 
-        .guide-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-
-        .guide-group {
-            background-color: #fcfdfe;
-            border: 1px solid #f0f4f7;
-            padding: 24px;
-            border-radius: 12px;
-        }
-
-        .guide-group-label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: bold;
-            color: var(--accent-main);
-            margin-bottom: 16px;
-            text-align: center;
-            letter-spacing: 0.1em;
-        }
-
-        .guide-btns {
+        .guide-btns-row {
             display: flex;
-            flex-direction: column;
-            gap: 12px;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        /* --- ツール紹介カード --- */
+        .guide-btns-row .btn {
+            flex: 1;
+            min-width: 200px;
+            max-width: 350px;
+        }
+
+        /* --- 3. ツール紹介カード --- */
         .tool-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -202,15 +186,6 @@
         }
 
         /* --- Footer & Others --- */
-        .news-list { list-style: none; padding: 0; margin: 0; }
-        .news-list li {
-            padding: 16px;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            gap: 20px;
-        }
-        .news-date { font-weight: bold; color: var(--accent-main); min-width: 90px; }
-
         .terms-box {
             background-color: #eff4f6;
             padding: 24px;
@@ -241,9 +216,8 @@
             .hero-text { order: 1; }
             .hero-text h1 { font-size: 2.2rem; }
 
-            .guide-grid { grid-template-columns: 1fr; }
+            .guide-btns-row .btn { flex: none; width: 100%; }
             section { padding: 60px 0; }
-            .news-list li { flex-direction: column; gap: 4px; }
         }
     </style>
 </head>
@@ -266,35 +240,38 @@
     </div>
 </header>
 
-<section id="guide">
+<section id="introduction">
     <div class="container">
-        <h2>はじめての方へ・販売案内</h2>
+        <h2>はじめての方へ</h2>
         <div class="guide-box">
             <p class="guide-intro">
                 はじめての方へ向けた案内記事と、公開先・販売先への入口をまとめています。<br>
                 活動内容を知りたい方も、ツールや記事を見たい方も、こちらからご確認ください。
             </p>
-            <div class="guide-grid">
-                <div class="guide-group">
-                    <span class="guide-group-label">まず知る</span>
-                    <div class="guide-btns">
-                        <a href="https://note.com/season_log/n/ncda5a023b75f" target="_blank" rel="noopener" class="btn btn-outline">自己紹介</a>
-                        <a href="https://note.com/season_log/n/n34427d92607d" target="_blank" rel="noopener" class="btn btn-outline">初めての方へ</a>
-                    </div>
-                </div>
-                <div class="guide-group">
-                    <span class="guide-group-label">見る・探す</span>
-                    <div class="guide-btns">
-                        <a href="https://note.com/season_log" target="_blank" rel="noopener" class="btn btn-outline">note</a>
-                        <a href="https://coconala.com/contents_market/search?user_id=5894067" target="_blank" rel="noopener" class="btn btn-outline">ココナラ</a>
-                    </div>
-                </div>
+            <div class="guide-btns-row">
+                <a href="https://note.com/season_log/n/ncda5a023b75f" target="_blank" rel="noopener" class="btn btn-outline">自己紹介</a>
+                <a href="https://note.com/season_log/n/n34427d92607d" target="_blank" rel="noopener" class="btn btn-outline">初めての方へ</a>
             </div>
         </div>
     </div>
 </section>
 
-<section id="tools" style="background-color: var(--bg-section-alt);">
+<section id="platforms" style="background-color: var(--bg-section-alt);">
+    <div class="container">
+        <h2>販売・活動拠点</h2>
+        <div class="guide-box">
+            <p class="guide-intro">
+                最新のツール、販売中のアイテム、日々の制作記録などは、各プラットフォームをご確認ください。
+            </p>
+            <div class="guide-btns-row">
+                <a href="https://note.com/season_log" target="_blank" rel="noopener" class="btn btn-outline">note</a>
+                <a href="https://coconala.com/contents_market/search?user_id=5894067" target="_blank" rel="noopener" class="btn btn-outline">ココナラ</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="tools">
     <div class="container">
         <h2>公開中のツール</h2>
         <div class="tool-grid">
@@ -317,7 +294,7 @@
     </div>
 </section>
 
-<section id="terms">
+<section id="terms" style="background-color: var(--bg-section-alt);">
     <div class="container">
         <h2>ご利用にあたって</h2>
         <div class="terms-box">
@@ -330,7 +307,7 @@
     </div>
 </section>
 
-<section id="contact" style="background-color: var(--bg-section-alt);">
+<section id="contact">
     <div class="container">
         <h2>お問い合わせ</h2>
         <div class="contact-box">
